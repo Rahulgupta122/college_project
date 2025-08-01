@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: radial-gradient(ellipse at top, #0d1b2a, #000000);
+  color: #e0f7fa;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+}
+
+.container {
+  background: rgba(13, 27, 42, 0.6);
+  border: 2px solid rgba(0, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  animation: fadeUp 0.8s ease-in-out;
+}
+
+/* Headings */
+h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #76fff1;
+  text-align: center;
+  text-shadow: 0 0 4px #00fff2;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #a0f8ff;
+}
+
+/* Inputs */
+input {
+  width: 90%;
+  padding: 14px;
+  margin: 12px auto;
+  font-size: 15px;
+  border-radius: 10px;
+  border: none;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+input::placeholder {
+  color: #b0c4de;
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Buttons */
+button {
+  padding: 12px 30px;
+  margin: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  background: linear-gradient(90deg, #00e6e6, #007d7d);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #00f5d4, #00c9b1);
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background: #666;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Status Panel */
+.status-box {
+  position: absolute;
+  top: 40px;
+  right: -440px;
+  width: 400px;
+  height: 600px;
+  background: rgba(0, 20, 30, 0.85);
+  border: 2px solid #76fff1;
+  border-radius: 14px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.2);
+  animation: slideIn 1s ease;
+}
+
+.status-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00e6e6;
+}
+
+/* Individual status */
+.status-entry {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 6px solid #777;
+  padding: 16px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.status-entry.present {
+  border-left-color: #3efc84;
+  background-color: rgba(0, 255, 100, 0.15);
+}
+
+.status-entry.absent {
+  border-left-color: #ff4d4d;
+  background-color: rgba(255, 50, 50, 0.15);
+}
+
+.status-entry:hover {
+  transform: translateY(-3px);
+}
+
+/* Warning */
+.warning {
+  margin-top: 16px;
+  color: #ff7373;
+  font-weight: bold;
+  font-size: 14px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateX(80px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .status-box {
+    position: static;
+    width: 100%;
+    margin-top: 30px;
+    right: 0;
+  }
+
+  .container {
+    padding: 30px 20px;
+  }
+}
